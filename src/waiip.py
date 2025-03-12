@@ -1,4 +1,22 @@
 # waiip.py
+from enum import Enum
+
+class TokenTypes(Enum) :
+    ILLEGAL = "ILLEGAL"
+    EOF = "EOF"
+    IDENT = "IDENT"
+    INT = "INT"
+    ASSIGN = "="
+    PLUS = "+"
+    COMMA = ","
+    SEMICOLON = ";"
+    LPAREN = "("
+    RPAREN = ")"
+    LBRACE = "{"
+    RBRACE = "}"
+    FUNCTION = "FUNCTION"
+    LET = "LET"
+
 
 class Token:
     """A simple class example."""
