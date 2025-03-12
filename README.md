@@ -8,7 +8,7 @@ A Python implementation of Monkey programming language from [Writing An Interpre
 
 - [ ] 1
   - [x] 1
-  - [ ] 2
+  - [x] 2
   - [ ] 3
   - [ ] 4
   - [ ] 5
