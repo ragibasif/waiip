@@ -26,34 +26,38 @@ class Lexer:
             self.l_ch = self.l_input[self.l_readPosition]
         self.l_position = self.l_readPosition
         self.l_readPosition += 1
+
+    def newToken(self,tokenType: TokenTypes, ch: str) -> Token:
+        tok = Token(t_type=tokenType, t_literal=ch)
+        return tok
+
     def NextToken(self) -> Token:
-        tok = Token()
+        tok = Token("","")
 
         match self.l_ch:
             case '=':
-                tok = newToken(TokenTypes.ASSIGN, self.l_ch)
+                tok = self.newToken(TokenTypes.ASSIGN.name, self.l_ch)
             case ';':
-                tok = newToken(TokenTypes.SEMICOLON, self.l_ch)
+                tok = self.newToken(TokenTypes.SEMICOLON.name, self.l_ch)
             case '(':
-                tok = newToken(TokenTypes.LPAREN, self.l_ch)
+                tok = self.newToken(TokenTypes.LPAREN.name, self.l_ch)
             case ')':
-                tok = newToken(TokenTypes.RPAREN, self.l_ch)
+                tok = self.newToken(TokenTypes.RPAREN.name, self.l_ch)
             case ',':
-                tok = newToken(TokenTypes.COMMA, self.l_ch)
+                tok = self.newToken(TokenTypes.COMMA.name, self.l_ch)
             case '+':
-                tok = newToken(TokenTypes.PLUS, self.l_ch)
+                tok = self.newToken(TokenTypes.PLUS.name, self.l_ch)
             case '{':
-                tok = newToken(TokenTypes.LBRACE, self.l_ch)
+                tok = self.newToken(TokenTypes.LBRACE.name, self.l_ch)
             case '}':
-                tok = newToken(TokenTypes.RBRACE, self.l_ch)
+                tok = self.newToken(TokenTypes.RBRACE.name, self.l_ch)
             case '':
-                tok.t_literal = ""
                 tok.t_type = TokenTypes.EOF.name
+                tok.t_literal = TokenTypes.EOF.value
 
         self.readChar()
         return tok
 
-def newToken(tokenType: TokenTypes, ch: str) -> Token:
-    return Token(t_type=tokenType.name, t_literal=ch)
 
-
+def isLetter(ch:str) -> bool:
+    return 'a' <= ch and ch <= 'z' or 'A' <= ch and ch <= 'Z' or ch == '_'
