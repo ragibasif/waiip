@@ -27,3 +27,13 @@ class Token:
         self.t_type = t_type
         self.t_literal = t_literal
 
+
+keywords: dict = {
+        "fn": TokenTypes.FUNCTION,
+        "let": TokenTypes.LET
+        }
+
+def LookupIdent(ident: str) -> TokenTypes:
+    if (keywords[ident]):
+        return keywords[ident]
+    return TokenTypes.IDENT

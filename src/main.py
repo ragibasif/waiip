@@ -80,9 +80,9 @@ def TestNextToken_one():
 
 
 def main():
-    TestToken()
-    TestNextToken_zero()
-    # TestNextToken_one()
+    # TestToken()
+    # TestNextToken_zero()
+    TestNextToken_one()
 
 if __name__ == "__main__":
     main()
