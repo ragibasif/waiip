@@ -1,7 +1,8 @@
 # main.py
 
-from token import Token, TokenTypes
-from lexer import Lexer
+from token import *
+from lexer import *
+
 
 def TestToken():
     print("TestToken")
@@ -80,8 +81,8 @@ def TestNextToken_one():
 
 
 def main():
-    # TestToken()
-    # TestNextToken_zero()
+    TestToken()
+    TestNextToken_zero()
     TestNextToken_one()
 
 if __name__ == "__main__":

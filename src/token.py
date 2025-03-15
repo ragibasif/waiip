@@ -2,7 +2,8 @@
 
 from enum import Enum
 
-class TokenTypes(Enum) :
+
+class TokenTypes(Enum):
     ILLEGAL = "ILLEGAL"
     EOF = "EOF"
     IDENT = "IDENT"
@@ -22,18 +23,16 @@ class TokenTypes(Enum) :
 class Token:
     """Token class."""
 
-    def __init__(self, t_type: str , t_literal: str ) -> None:
+    def __init__(self, t_type: str, t_literal: str) -> None:
         """Initialize the class with a type and literal."""
         self.t_type = t_type
         self.t_literal = t_literal
 
 
-keywords: dict = {
-        "fn": TokenTypes.FUNCTION,
-        "let": TokenTypes.LET
-        }
+keywords: dict = {"fn": TokenTypes.FUNCTION, "let": TokenTypes.LET}
+
 
 def LookupIdent(ident: str) -> TokenTypes:
-    if (keywords[ident]):
+    if keywords[ident] in keywords:
         return keywords[ident]
     return TokenTypes.IDENT
